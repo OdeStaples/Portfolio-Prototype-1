@@ -1,0 +1,29 @@
+@keyframes plant {
+ from{
+  transform: translateY(0%);
+ }
+
+ to{
+  transform: translateY(-30%);
+ }
+}
+
+@keyframes person{
+ from{
+  transform: rotate(-5deg);
+ }
+
+ to{
+  transform: rotate(5deg);
+ }
+}
+
+@keyframes clock{
+ from{
+  transform: rotate(0deg);
+ }
+
+ to{
+  transform: rotate(360deg);
+ }
+}

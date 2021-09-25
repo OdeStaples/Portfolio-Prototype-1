@@ -1,0 +1,41 @@
+.form{
+ @include flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: row;
+ padding: 0 2rem;
+ min-height: 100vh;
+
+ form{
+  padding: 1rem;
+  box-shadow: 0rem 0.5rem 0.5rem rgba($color: #000000, $alpha: 0.2),
+  0 1.5rem 3rem rgba($color: #000000, $alpha: 0.2);
+  border-radius: 2rem;
+  margin: 5rem 0;
+
+  > input, textarea, button{
+   display: inline-block;
+   text-align: center;
+   width: 100%;
+   margin: 1rem 0;
+   font-size: 2rem;
+
+   &:focus{
+    outline: 2px solid black;
+   }
+  }
+
+  > label{
+   display: block;
+   text-align: center;
+  }
+
+  button{
+   display: block;
+   margin: 2rem auto;
+   background: $bg-color;
+   color: white;
+   padding: 0.8rem 1rem;
+  }
+ }
+}

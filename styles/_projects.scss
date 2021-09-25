@@ -1,0 +1,33 @@
+.projects{
+ // min-height: 100vh;
+ @include flex;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+ flex-wrap: wrap;
+ margin-bottom: 2rem;
+
+ .travel-geek, .chloe-gill, .jaguars-gym, .sunnyside{
+  flex: 1 1 50rem;
+  padding: 3rem;
+
+  @include phone{
+   padding: 0 1rem;
+  }
+
+  img{
+   height: 100%;
+   width: 100%;
+  }
+
+  h2{
+   margin-bottom: 2rem;
+  }
+ }
+
+ .sunnyside, .jaguars-gym{
+  img{
+   border-radius: 2rem;
+  }
+ }
+}

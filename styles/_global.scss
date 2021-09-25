@@ -1,0 +1,83 @@
+// Global Styles
+$base-size: 1rem;
+$type-scale: 1.25;
+$h6: $base-size * $type-scale;
+$h5: $h6 * $type-scale;
+$h4: $h5 * $type-scale;
+$h3: $h4 * $type-scale;
+$h2: $h3 * $type-scale;
+$h1: $h2 * $type-scale;
+
+$gradient: linear-gradient(to left, #38d39f, #38a4d3);
+$bg-color: #154353;
+$gray-text: #2c2c2c;
+
+$text-normal: $h3;
+$text-small: $h5;
+$text-large: $h2;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  &::after,
+  &::before {
+    @extend *;
+  }
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  display: grid;
+  grid-template: "header"
+  "main"
+  "footer";
+}
+
+h6 {
+  font-size: $h6;
+}
+
+h5 {
+  font-size: $h5;
+}
+
+h4 {
+  font-size: $h4;
+}
+
+h3 {
+  font-size: $h3;
+}
+
+h2 {
+  font-size: $h2;
+}
+
+h1 {
+  font-size: $h1;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: $gray-text;
+}
+
+li,
+button,
+input,
+a,
+p,
+label {
+  font-size: $text-normal;
+}

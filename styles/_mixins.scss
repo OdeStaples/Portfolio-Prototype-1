@@ -1,0 +1,10 @@
+@mixin flex{
+  display: flex;
+}
+
+@mixin phone{
+  @media screen and (max-width: 850px){
+    @content;
+  }
+}
+

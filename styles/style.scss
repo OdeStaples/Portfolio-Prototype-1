@@ -1,0 +1,272 @@
+@import "./global", "./mixins", "./animations", "./projects", "./contact";
+
+header {
+  grid-area: header;
+  z-index: 2;
+  position: sticky;
+  top: 0;
+  box-shadow: 0rem 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+nav {
+  @include flex;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+  background: white;
+
+  @include phone {
+    padding: 2rem 1rem;
+
+    .logo {
+      h1 {
+        font-size: $h3;
+      }
+    }
+    .toggler,
+    .hamburger {
+      display: block;
+      position: absolute;
+      width: 3rem;
+      right: 1rem;
+      cursor: pointer;
+    }
+
+    .toggler {
+      height: 3rem;
+      opacity: 0;
+      z-index: 1;
+
+      &:checked ~ .hamburger {
+        background: transparent;
+        transform: rotate(135deg);
+
+        &::before {
+          top: 0;
+          transform: rotate(90deg);
+        }
+
+        &::after {
+          top: 0;
+          transform: rotate(0deg);
+        }
+      }
+
+      &:checked + .nav-links {
+        visibility: visible;
+
+        > .menu-bg {
+          transform: scale(1);
+          transition: all 0.4s ease-in-out;
+        }
+
+        ul {
+          opacity: 1;
+
+          li {
+            padding: 3rem 0;
+          }
+        }
+      }
+    }
+
+    .hamburger {
+      height: 0.3rem;
+      background: $gray-text;
+      transition: all 250ms ease-in-out;
+
+      &::before,
+      &::after {
+        content: "";
+        height: 100%;
+        width: 100%;
+        background: $gray-text;
+        z-index: 1;
+        position: absolute;
+      }
+
+      &::before {
+        transform: translateY(-1rem);
+      }
+      &::after {
+        transform: translateY(1rem);
+      }
+    }
+
+    .nav-links {
+      @include flex;
+      visibility: hidden;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      @include flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+
+      .menu-bg {
+        height: 150vh;
+        width: 200vw;
+        transform: scale(0);
+        @include flex;
+        flex: none;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        background: $gradient;
+      }
+
+      ul {
+        flex-direction: column;
+        transition: opacity 250ms ease-in-out;
+      }
+    }
+  }
+}
+
+.logo {
+  @include flex;
+  align-items: center;
+  margin: 0 auto 0 0;
+
+  img {
+    margin-right: 1rem;
+  }
+}
+
+.toggler,
+.hamburger {
+  display: none;
+}
+
+ul {
+  @include flex;
+  align-items: center;
+
+  li {
+    padding: 0 5rem;
+    
+      .active {
+        background: $gray-text;
+        color: white;
+        padding: 1rem 3rem;
+        border-radius: 3rem;
+      }
+    
+  }
+}
+
+main {
+  grid-area: main;
+  min-height: 100vh;
+}
+
+section {
+  @include flex;
+  flex-wrap: wrap;
+
+  @include phone {
+  }
+
+  .intro-text,
+  .intro-images {
+    flex: 1 1 40rem;
+  }
+
+  .intro-text {
+    padding: 8rem 2rem;
+
+    h2 {
+      background: $gradient;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 4rem;
+      padding: 2rem 0;
+      display: inline-block;
+    }
+
+    h3 {
+      padding: 2rem 0;
+      font-size: 4rem;
+    }
+
+    p {
+      padding: 2rem 0;
+      color: $gray-text;
+    }
+
+    .socials-intro {
+      padding: 2rem 0;
+      a {
+        padding: 0 1rem;
+      }
+      img {
+        height: 5rem;
+        width: 5rem;
+      }
+    }
+  }
+
+  .intro-images {
+    position: relative;
+    overflow: hidden;
+
+    @include phone {
+      height: 50rem;
+    }
+
+    svg {
+      position: absolute;
+      top: 0%;
+      right: 0%;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    .splash {
+      right: -20%;
+      @include phone {
+        top: -20%;
+        height: max-content;
+        width: 120%;
+      }
+    }
+  }
+  #plant-left {
+    animation: plant 1.5s ease-in-out infinite alternate;
+  }
+  #plant-right {
+    animation: plant 1.5s ease-in-out infinite alternate 0.5s;
+  }
+  #me {
+    animation: person 1s linear infinite alternate;
+    transform-origin: bottom;
+  }
+  #clock-arrow {
+    animation: clock 1.5s linear infinite;
+    transform-box: fill-box;
+    transform-origin: bottom;
+  }
+}
+
+footer{
+  grid-area: footer;
+  background: $bg-color;
+  color: white;
+  @include flex;
+  align-items: center;
+  padding: 3rem 1rem;
+  
+  h4{
+    margin-right: auto;
+  }
+
+  .socials{
+    @include flex;
+    flex: 0 0 30%;
+    justify-content: space-around;
+  }
+}
